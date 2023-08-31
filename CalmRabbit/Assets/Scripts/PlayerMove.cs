@@ -21,7 +21,7 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float speed = onLand ? maxSpeed : 0.15f * maxSpeed;
+        float speed = onLand ? maxSpeed : 0.3f * maxSpeed;
 
 
         //Get the Screen positions of the object
@@ -43,7 +43,14 @@ public class PlayerMove : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W))
         {
-            anim.SetBool("IsMoving", true);
+            if (onLand)
+            {
+                anim.SetBool("IsMoving", true);
+            }
+            else
+            {
+                anim.SetBool("IsMoving", false);
+            }
         }
         else
         {

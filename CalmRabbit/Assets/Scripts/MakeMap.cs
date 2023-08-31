@@ -77,23 +77,23 @@ public class MakeMap : MonoBehaviour
         playerXCoord = Rabbit.transform.localPosition.x;
         playerZCoord = Rabbit.transform.localPosition.z;
 
-        if(System.Math.Abs(playerXCoord - currentRightBound) > (0.75f * width * 10f))
+        if(System.Math.Abs(playerXCoord - currentRightBound) > (0.65f * width * 10f))
         {
             ShiftMapLeft();
         }
 
-        if(System.Math.Abs(playerXCoord - currentLeftBound) > (0.75f * width * 10f))
+        if(System.Math.Abs(playerXCoord - currentLeftBound) > (0.65f * width * 10f))
         {
             ShiftMapRight();
         }
 
-        if(System.Math.Abs(playerZCoord - currentBottomBound) > (0.75f * height * 10f))
+        if(System.Math.Abs(playerZCoord - currentBottomBound) > (0.65f * height * 10f))
         {
             ShiftMapUp();
 
         }
 
-        if (System.Math.Abs(playerZCoord - currentTopBound) > (0.75f * height * 10f))
+        if (System.Math.Abs(playerZCoord - currentTopBound) > (0.65f * height * 10f))
         {
             
             ShiftMapDown();
