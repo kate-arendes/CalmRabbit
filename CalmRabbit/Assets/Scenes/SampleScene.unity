@@ -316,8 +316,8 @@ Rigidbody:
   m_GameObject: {fileID: 656737385}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0
+  m_Drag: 2
+  m_AngularDrag: 2
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -633,14 +633,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.507045, y: -0, z: -0, w: 0.8619196}
-  m_LocalPosition: {x: 0, y: 4.3100004, z: -1.9400024}
+  m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
+  m_LocalPosition: {x: 0, y: 3, z: -1.9400024}
   m_LocalScale: {x: 0.14285713, y: 0.14285712, z: 0.14285712}
   m_Children:
   - {fileID: 618771831}
   m_Father: {fileID: 1064816792}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 60.934, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
 --- !u!4 &1064816792 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4677745771901032, guid: c737dd230724d61469e1c672cf47ed9e, type: 3}
@@ -809,7 +809,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4677745771901032, guid: c737dd230724d61469e1c672cf47ed9e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 150
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4677745771901032, guid: c737dd230724d61469e1c672cf47ed9e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -817,7 +817,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4677745771901032, guid: c737dd230724d61469e1c672cf47ed9e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 150
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4677745771901032, guid: c737dd230724d61469e1c672cf47ed9e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -898,6 +898,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GroundCube: {fileID: 5391184643108431188, guid: 924aaa533fd5fd44a8d7c8e38bed80ec, type: 3}
   WaterCube: {fileID: 3565011522665011529, guid: eb2096e3f35b0a8479db7f7d15e725b0, type: 3}
-  width: 40
-  height: 40
+  EmptyObject: {fileID: 2553351912220134988, guid: 53996b30a5f86ad41bbf5cae711b3bf9, type: 3}
+  Rabbit: {fileID: 656737385}
+  width: 18
+  height: 18
   waterChance: 0.3
