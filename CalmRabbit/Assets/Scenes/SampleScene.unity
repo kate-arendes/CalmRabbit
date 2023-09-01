@@ -825,8 +825,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WaterCube: {fileID: 3565011522665011529, guid: eb2096e3f35b0a8479db7f7d15e725b0, type: 3}
   Rabbit: {fileID: 656737385}
-  width: 3
-  height: 3
+  width: 4
+  height: 4
 --- !u!1 &1745211140
 GameObject:
   m_ObjectHideFlags: 0

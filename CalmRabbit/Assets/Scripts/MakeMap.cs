@@ -128,8 +128,14 @@ public class MakeMap : MonoBehaviour
         for (int zIndex = 0; zIndex < height; zIndex++)
         {
             tileArray[0, zIndex] = tilePoolHeight[zIndex];
-            float tileHeight = Random.Range(0.5f, 1.5f);
             float currentZ = tileArray[0, zIndex].transform.localPosition.z;
+            float tileHeight = Random.Range(0.5f, 1.5f);
+
+            float maxY = 0.01f * (1f + (float)System.Math.Sqrt(System.Math.Pow(currentX, 2) + System.Math.Pow(currentZ, 2)));
+            float newY = Random.Range(1f, maxY);
+
+            tileArray[0, zIndex].transform.localScale += new Vector3(0f, newY, 0f);
+
 
             tileArray[0, zIndex].transform.localPosition = new Vector3(currentX, tileHeight, currentZ);
             
@@ -175,6 +181,11 @@ public class MakeMap : MonoBehaviour
             float tileHeight = Random.Range(0.5f, 1.5f);
             float currentZ = tileArray[width - 1, zIndex].transform.localPosition.z;
 
+            float maxY = 0.01f * (1f + (float)System.Math.Sqrt(System.Math.Pow(currentX, 2) + System.Math.Pow(currentZ, 2)));
+            float newY = Random.Range(1f, maxY);
+
+            tileArray[width - 1, zIndex].transform.localScale += new Vector3(0f, newY, 0f);
+
             tileArray[width - 1, zIndex].transform.localPosition = new Vector3(currentX, tileHeight, currentZ);
 
         }
@@ -218,6 +229,11 @@ public class MakeMap : MonoBehaviour
             float tileHeight = Random.Range(0.5f, 1.5f);
             float currentX = tileArray[xIndex, height - 1].transform.localPosition.x;
 
+            float maxY = 0.01f * (1f + (float)System.Math.Sqrt(System.Math.Pow(currentX, 2) + System.Math.Pow(currentZ, 2)));
+            float newY = Random.Range(1f, maxY);
+
+            tileArray[xIndex, height - 1].transform.localScale += new Vector3(0f, newY, 0f);
+
             tileArray[xIndex, height - 1].transform.localPosition = new Vector3(currentX, tileHeight, currentZ);
 
         }
@@ -260,6 +276,11 @@ public class MakeMap : MonoBehaviour
             tileArray[xIndex, 0] = tilePoolWidth[xIndex];
             float tileHeight = Random.Range(0.5f, 1.5f);
             float currentX = tileArray[xIndex, 0].transform.localPosition.x;
+
+            float maxY = 0.01f * (1f + (float)System.Math.Sqrt(System.Math.Pow(currentX, 2) + System.Math.Pow(currentZ, 2)));
+            float newY = Random.Range(1f, maxY);
+
+            tileArray[xIndex, 0].transform.localScale += new Vector3(0f, newY, 0f);
 
             tileArray[xIndex, 0].transform.localPosition = new Vector3(currentX, tileHeight, currentZ);
 
