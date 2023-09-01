@@ -1,3 +1,5 @@
+// ISSUES: ShiftMapRight() and ShiftMapDown() are not working... the bounds are probably not being updated!
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +16,6 @@ public class MakeMap : MonoBehaviour
     private GameObject[,] tileArray;
     private GameObject[] tilePoolHeight;
     private GameObject[] tilePoolWidth;
-    private GameObject water;
 
     // Start is called before the first frame update
     void Start()
@@ -28,9 +29,6 @@ public class MakeMap : MonoBehaviour
 
 
         float currentX = 0.0f, currentZ = 0.0f;
-
-        water = Instantiate<GameObject>(WaterCube);
-        water.transform.position = new Vector3(0, 0, 0);
 
         for (int xIndex = 0; xIndex < width; xIndex++)
         {
@@ -77,34 +75,34 @@ public class MakeMap : MonoBehaviour
         playerXCoord = Rabbit.transform.localPosition.x;
         playerZCoord = Rabbit.transform.localPosition.z;
 
-        if(System.Math.Abs(playerXCoord - currentRightBound) > (0.65f * width * 10f))
+        if(System.Math.Abs(playerXCoord - currentRightBound) > (0.75f * width * 10f))
         {
             ShiftMapLeft();
         }
 
-        if(System.Math.Abs(playerXCoord - currentLeftBound) > (0.65f * width * 10f))
+        if(System.Math.Abs(playerXCoord - currentLeftBound) > (0.75f * width * 10f))
         {
             ShiftMapRight();
         }
 
-        if(System.Math.Abs(playerZCoord - currentBottomBound) > (0.65f * height * 10f))
+        if(System.Math.Abs(playerZCoord - currentBottomBound) > (0.75f * height * 10f))
         {
             ShiftMapUp();
 
         }
 
-        if (System.Math.Abs(playerZCoord - currentTopBound) > (0.65f * height * 10f))
+        if (System.Math.Abs(playerZCoord - currentTopBound) > (0.75f * height * 10f))
         {
             
             ShiftMapDown();
         }
 
-
-        water.transform.localPosition = new Vector3(playerXCoord, 0f, playerZCoord);
     }
 
     void ShiftMapLeft()
     {
+
+        print("Map shifted left");
 
         // Put right row in pool 
 
@@ -137,19 +135,19 @@ public class MakeMap : MonoBehaviour
             
         }
 
-        // Update right bound
+        // Update horizontal bounds
 
-        if(tileArray[width - 1, height - 1] != null)
-        {
-            currentRightBound = tileArray[width - 1, height - 1].transform.localPosition.x;
-        }
-
+        currentRightBound = tileArray[width - 1, height - 1].transform.localPosition.x;
+        currentLeftBound = tileArray[0, 0].transform.localPosition.x;
         
     }
 
 
     void ShiftMapRight()
     {
+
+        print("Map shifted right");
+
         // Add left tiles to pool
 
         for (int zIndex = 0; zIndex < height; zIndex++)
@@ -181,17 +179,18 @@ public class MakeMap : MonoBehaviour
 
         }
 
-        // Update left bound
+        // Update horizontal bounds
 
-        if (tileArray[0, 0])
-        {
-            currentLeftBound = tileArray[0, 0].transform.localPosition.x;
-        }
+        currentLeftBound = tileArray[0, 0].transform.localPosition.x;
+        currentRightBound = tileArray[width - 1, height - 1].transform.localPosition.x;
 
     }
 
     void ShiftMapDown()
     {
+
+        print("Map shifted down");
+
         // Add top tiles to pool
 
         for (int xIndex = 0; xIndex < width; xIndex++)
@@ -223,14 +222,17 @@ public class MakeMap : MonoBehaviour
 
         }
 
-        // Update top bound
+        // Update vertical bounds
 
         currentTopBound = tileArray[0, 0].transform.localPosition.z;
+        currentBottomBound = tileArray[width - 1, height - 1].transform.localPosition.z;
 
     }
 
     void ShiftMapUp()
     {
+
+        print("Map shifted up");
 
         // Pool bottom column
 
@@ -263,9 +265,10 @@ public class MakeMap : MonoBehaviour
 
         }
 
-        // Update bottom bound
+        // Update vertical bounds
 
         currentBottomBound = tileArray[0, height - 1].transform.localPosition.z;
+        currentTopBound = tileArray[0, 0].transform.localPosition.z;
 
     }
 }
